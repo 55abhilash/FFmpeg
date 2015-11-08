@@ -2425,7 +2425,7 @@ static int http_send_data(HTTPContext *c)
                     /* fail safe - should never happen */
                 fail1:
                     c->buffer_ptr = c->buffer_end;
-                    return 0;
+                    return -1; /*Fail condition. Return -1*/
                 }
                 len = (c->buffer_ptr[0] << 24) |
                     (c->buffer_ptr[1] << 16) |
